@@ -4,6 +4,7 @@ def admin_login(username, password)
     return "Access granted"
   else
     "Access denied"
+  end
 end
 
 def hows_the_weather(temperature)
@@ -17,25 +18,42 @@ def hows_the_weather(temperature)
     "It's too dang hot out there!"
   else
     "It's perfect out there!"
+  end
 end
 
 def fizzbuzz(num)
   # your code here
-  x = num
-  if(num%3==0)
-    x = "Fizz"
-    if(num%5==0)
-      x = "FizzBuzz"
-  if(num%5==0)
-    x = "Buzz"
-  x
+  choice = {3=>"Fizz", 5=>"Buzz"}
+  string = ""
+
+  choice.each do |key, value|
+    string += value if num%key == 0
+  end
+
+  if(string == "")
+    return num
+  end
+  string
 end
+
+puts fizzbuzz(14)
+puts fizzbuzz(15)
 
 def calculator(operation, num1, num2)
   # your code here
-  let accept = ["+", "-", "*", "/"]
-  if (accept.include?(operation))
-    return num operation num2
-  nil
+    case operation
+      when "+"
+        num1 + num2
+      when "-"
+        num1 - num2
+      when "/"
+        num1 / num2
+      when "*"
+        num1 * num2
+      else
+        puts "Invalid operation!"
+        nil
+      end 
 end
 
+puts (calculator("+", 2, 3))
